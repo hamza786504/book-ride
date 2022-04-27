@@ -1,0 +1,28 @@
+nav.navbar{
+    display: flex;
+    align-items: stretch;
+}
+nav.navbar .left , nav.navbar .right{
+    flex: 1;
+}
+nav.navbar .left .logo{
+    width: 100%;
+}
+nav.navbar .left img{
+    width: 100%;
+}
+nav.navbar .right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+nav.navbar .right .companies{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav.navbar .right .companies .company_logo{
+    width: 150px;
+    height: 30px;
+}

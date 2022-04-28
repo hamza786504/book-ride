@@ -1,5 +1,167 @@
+:root{
+    --light-blue : #2875be;
+    --dark-blue: #1f4485;
+}
 .main_page{
-    width: 920px;
+    width: 900px;
     margin: 0 auto;
     min-height: 100vh;
+}
+.background_image{
+    background-image: url("../../public/images/b1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+    background-position: center;
+    position: relative;
+}
+.background_image .search_form{
+    background-color: rgba(0, 0, 0, 0.466);
+    height: 280px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 0 20px;
+}
+.background_image .search_form > h3{
+    color: white;
+    font-size: 23px;
+    font-weight: normal;
+    padding: 5px 0;
+}
+.background_image .search_form .field_outer , .search_form .field_outer .left{
+    display: flex;
+    align-items: flex-start;
+}
+.search_form .field_outer .left{
+    flex: 1;
+    justify-content: space-between;
+    align-items: space-between;
+    flex-wrap: wrap;
+    min-height: 116px;
+}
+.left .form_feild{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    position: relative;
+}
+.left .form_feild input{
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    padding: 0 20px;
+}
+.left .form_feild .empty_input{
+    font-size: 21px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    color: gray;
+}
+.form_feild{
+    box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.527);
+}
+.search_form .field_outer .right{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 16px;
+    flex-basis: 20%;
+
+}
+.search_form .field_outer .right .option{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.search_form .field_outer .right input[type="checkbox"]{
+    height: 20px;
+    width: 20px;
+}
+.search_form .field_outer .right p{
+    color: white;
+    margin-left: 16px;
+    flex: 1;
+    font-size: 14px;
+    line-height: 20px;
+}
+.search_form .field_outer .right button.native_button{
+    background-color: #0a5bb6;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.react-datepicker__header.react-datepicker__header--custom{
+    background-color: #f2f2f2;
+    padding: 0px;
+}
+.react-datepicker__header.react-datepicker__header--custom > div:first-child{
+    background-color: #0a5bb6;
+    padding: 10px 0;
+}
+.react-datepicker__navigation{
+    top: 25%;
+    transform: translateY(-40%);
+}
+.react-datepicker__current-month{
+    color: white;
+}
+.react-datepicker__month-container{
+    padding: 10px;
+}
+.react-datepicker{
+    width: 550px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.react-datepicker__month-container{
+    width: 50%;
+    padding: 0;
+    flex-basis: 49%;
+}
+.react-datepicker__day-names{
+    margin-bottom: 0;
+    color: var(--light-blue);
+}
+.react-datepicker .react-datepicker__day-name{
+    width: 14.28%;
+    color: var(--light-blue);
+}
+.react-datepicker .react-datepicker__week{
+    border-bottom: none;
+}
+.react-datepicker .react-datepicker__day{
+    width: 14.28%;
+    border-right: none;
+}
+.react-datepicker .react-datepicker__day:hover{
+    background-color: #f2f2f2;
+    cursor:pointer;
+}
+.react-datepicker .react-datepicker__day--selected:hover{
+    color:white;
+    background: var(--dark-blue) !important;
+}
+.react-datepicker .react-datepicker__day--selected{
+    background-color: #f2f2f2 !important;
+    color: black;
+}
+.react-datepicker-wrapper{
+    margin-left: 18px;
+}
+.form_feild_relative > span{
+    position: absolute;
+    top:10px;
 }

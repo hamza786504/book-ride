@@ -1,3 +1,7 @@
+:root{
+    --light-blue : #2875be;
+    --dark-blue: #1f4485;
+}
 nav.navbar{
     display: flex;
     align-items: stretch;
@@ -22,7 +26,51 @@ nav.navbar .right .companies{
     align-items: center;
     justify-content: center;
 }
-nav.navbar .right .companies .company_logo{
+.right .companies .company_logo{
     width: 150px;
     height: 30px;
+}
+.right .language_selection h5{
+    font-weight: 400;
+}
+nav.navbar .right .companies h5{
+    font-weight: 600;
+}
+.menus_bar .subheading{
+    background: linear-gradient(var(--light-blue) , var(--dark-blue));
+    border-radius: 2px 5px 5px 5px;
+    color: white;
+    padding: 13px;
+}
+.menu_bar{
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+.menu_bar .tab_btn{
+    background: linear-gradient(#f9f9f9 , #bebebe);
+    border: 1px solid #bebebe;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 7px;
+    font-size: 14px;
+    text-transform: capitalize;
+    margin-left: 3px;
+    color: #302a2a;
+    font-weight: bold;
+    cursor: pointer;
+}
+.menu_bar .tab_btn:first-child{
+    margin-left: 0;
+}
+.menu_bar .tab_btn:last-child{
+    color: #2875be;
+}
+.menu_bar .active_tab{
+    background: var(--light-blue) !important;
+    color: white;
 }

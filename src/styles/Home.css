@@ -29,14 +29,17 @@
     font-weight: normal;
     padding: 5px 0;
 }
+.background_image .search_form .field_outer{
+    align-items: flex-start;
+    position: relative;
+}
 .background_image .search_form .field_outer , .search_form .field_outer .left{
     display: flex;
-    align-items: flex-start;
 }
 .search_form .field_outer .left{
     flex: 1;
     justify-content: space-between;
-    align-items: space-between;
+    align-items: flex-start;
     flex-wrap: wrap;
     min-height: 116px;
 }
@@ -95,11 +98,11 @@
     border: none;
     color: white;
     padding: 10px;
-    margin-top: 10px;
     font-size: 20px;
     width: 100%;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 15px;
 }
 .react-datepicker__header.react-datepicker__header--custom{
     background-color: #f2f2f2;
@@ -118,12 +121,13 @@
 }
 .react-datepicker__month-container{
     padding: 10px;
+    overflow: hidden;
 }
 .react-datepicker{
     width: 550px;
     padding: 10px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 }
 .react-datepicker__month-container{
@@ -160,8 +164,85 @@
 }
 .react-datepicker-wrapper{
     margin-left: 18px;
+    width: 160px
 }
 .form_feild_relative > span{
     position: absolute;
-    top:10px;
+    top:14px;
+}
+.couple_feild .form_feild{
+    padding: 0;
+    padding-left: 10px;
+}
+.couple_feild .form_feild:last-child{
+    padding-left: 0;
+}
+.couple_feild{
+    display: flex;
+    height: 44px;
+}
+.couple_feild .startdate_time{
+    height: 40px;
+    width: 100%;
+    border: none;
+    border-left: 2px solid #cccccc;
+    padding-left: 7px;
+}
+.couple_feild .startdate_time:focus{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+.css-1s2u09g-control{
+    border-radius: 0 !important;
+    height: 100%;
+}
+.css-1okebmr-indicatorSeparator{
+    display: none !important;
+}
+.css-6j8wv5-Input input{
+    min-width: 70px !important;
+}
+.css-1pahdxg-control{
+    border-radius: 0 !important;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.705) !important;
+    border: none !important;
+}
+.css-qc6sy-singleValue{
+    font-size: 14px;
+}
+.css-2613qy-menu{
+    margin: 0 !important;
+}
+.tostify_message{
+    width: 95%;
+    margin: 0 auto;
+    position: absolute;
+    top: -8px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tostify_message.error{
+    background-color: #cb0000;
+    border: 1px solid white;
+}
+.tostify_message.error p{
+    color: white;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+.tostify_message.error button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 22px;
+}
+.error_feild{
+    border: 1px solid #cb0000;
+}
+.css-b62m3t-container{
+    height: 100%;
 }

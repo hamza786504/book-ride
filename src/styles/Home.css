@@ -65,7 +65,7 @@
     border: none;
     color: gray;
 }
-.form_feild{
+.form_feild:focus-within{
     box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.527);
 }
 .search_form .field_outer .right{

@@ -30,8 +30,8 @@ export default function Home() {
   const onPickuptimechange = (value) => {
     setSearchValues({ ...searchValues, pickUpTimeSelected: value });
   };
-  const onDropOfTimeChange = (value) => {
-    setSearchValues({ ...searchValues, pickUpTimeSelected: value });
+  const onDropOffTimeChange = (value) => {
+    setSearchValues({ ...searchValues, dropOffTimeSelected: value });
   };
 
   const search = (e) => {
@@ -39,7 +39,7 @@ export default function Home() {
     if (searchValues.pickuplocation === "") {
       error_array.push({ feildName: "pickuplocation", errormessage: true });
     }
-    if (searchValues.dropofflocation === "") {
+    if (isUseDropOfLocation === true && searchValues.dropofflocation === "") {
       error_array.push({ feildName: "dropofflocation", errormessage: true });
     }
     if (searchValues.pickupdate === null) {
@@ -123,7 +123,7 @@ export default function Home() {
                   </div>
                   {isUseDropOfLocation ? (
                     <>
-                      <div className={`form_feild ${isUseDropOfLocation && checkFeildNameFromErrorsArray("dropofflocation") ? "error_feild" : ""}`} style={{ flexBasis: "49%" }}>
+                      <div className={`form_feild ${checkFeildNameFromErrorsArray("dropofflocation") ? "error_feild" : ""}`} style={{ flexBasis: "49%" }}>
                         <span className="icon">
                           <BsTriangleHalf />
                         </span>
@@ -164,7 +164,7 @@ export default function Home() {
                       </span>
                       <DatePicker
                         name="pickupdate"
-                        defaultValue={searchValues.pickupdate}
+                        selected={searchValues.pickupdate}
                         renderCustomHeader={({
                           monthDate,
                           customHeaderCount,
@@ -173,6 +173,7 @@ export default function Home() {
                         }) => (
                           <div>
                             <button
+                            type="button"
                               aria-label="Previous Month"
                               className={
                                 "react-datepicker__navigation react-datepicker__navigation--previous"
@@ -182,7 +183,7 @@ export default function Home() {
                                   ? { visibility: "hidden" }
                                   : null
                               }
-                              onClick={decreaseMonth}
+                              onClick={() => {decreaseMonth()}}
                             >
                               <span
                                 className={
@@ -199,6 +200,7 @@ export default function Home() {
                               })}
                             </span>
                             <button
+                            type = "button"
                               aria-label="Next Month"
                               className={
                                 "react-datepicker__navigation react-datepicker__navigation--next"
@@ -208,7 +210,7 @@ export default function Home() {
                                   ? { visibility: "hidden" }
                                   : null
                               }
-                              onClick={increaseMonth}
+                              onClick={() => {increaseMonth()}}
                             >
                               <span
                                 className={
@@ -253,7 +255,7 @@ export default function Home() {
                       </span>
                       <DatePicker
                         name="dropOfDate"
-                        defaultValue={searchValues.dropOfDate}
+                        selected={searchValues.dropOfDate}
                         renderCustomHeader={({
                           monthDate,
                           customHeaderCount,
@@ -310,7 +312,7 @@ export default function Home() {
                           </div>
                         )}
                         onChange={(date) =>
-                          setSearchValues({ ...searchValues, pickupdate: date })
+                          setSearchValues({ ...searchValues, dropOfDate: date })
                         }
                         monthsShown={2}
                         minDate={new Date()}
@@ -325,7 +327,7 @@ export default function Home() {
                       <Select
                         defaultValue={searchValues.dropOffTimeSelected}
                         onChange={(e) => {
-                          onDropOfTimeChange(e);
+                          onDropOffTimeChange(e);
                         }}
                         options={dropoftime}
                         name="dropOffTimeSelected"

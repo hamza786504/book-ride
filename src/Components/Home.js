@@ -1,11 +1,13 @@
-import React from "react";
+import React , { useEffect } from "react";
 import Select from "react-select";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useState } from "react";
 import { BsTriangleHalf } from "react-icons/bs";
 import { BsCalendarDate } from "react-icons/bs";
+import { HiInformationCircle } from "react-icons/hi";
 import DatePicker from "react-datepicker";
+import ReactTooltip from 'react-tooltip';
 import pickuptime from "../pickuptime.json";
 import dropoftime from "../dropoftime.json";
 import "react-datepicker/dist/react-datepicker.css";
@@ -20,13 +22,20 @@ export default function Home() {
     pickupdate: null,
     dropOffTimeSelected: dropoftime[0],
     dropOfDate: null,
+    driver_age : { min : 30 , max : 69 },
     errors: [],
     showTostify: false,
   });
   const handleFormFields = (e) => {
     setSearchValues({ ...searchValues, [e.target.name]: e.target.value });
+    
   };
-
+  useEffect(() => {
+    if(searchValues.pickupdate > searchValues.dropOfDate){
+      setSearchValues({...searchValues , dropOfDate : null});
+    }
+  }, [searchValues.pickupdate])
+  
   const onPickuptimechange = (value) => {
     setSearchValues({ ...searchValues, pickUpTimeSelected: value });
   };
@@ -64,6 +73,11 @@ export default function Home() {
     }else{
       return true;
     }
+  }
+
+
+  const changeDriverAge = ({min , max = null}) => {
+    setSearchValues({...searchValues , driver_age : { min , max }});
   }
   return (
     <>
@@ -264,6 +278,7 @@ export default function Home() {
                         }) => (
                           <div>
                             <button
+                              type="button"
                               aria-label="Previous Month"
                               className={
                                 "react-datepicker__navigation react-datepicker__navigation--previous"
@@ -290,6 +305,7 @@ export default function Home() {
                               })}
                             </span>
                             <button
+                              type="button"
                               aria-label="Next Month"
                               className={
                                 "react-datepicker__navigation react-datepicker__navigation--next"
@@ -315,7 +331,10 @@ export default function Home() {
                           setSearchValues({ ...searchValues, dropOfDate: date })
                         }
                         monthsShown={2}
-                        minDate={new Date()}
+                        minDate={searchValues.pickupdate !== null ? 
+                          new Date(searchValues.pickupdate.getTime() + (24 * 60 * 60 * 1000)) : 
+                          new Date(new Date().getTime() + (24 * 60 * 60 * 1000))
+                        }
                         placeholderText="End date"
                         dateFormat="MMMM d yyyy"
                       />
@@ -350,6 +369,37 @@ export default function Home() {
                     Search
                   </button>
                 </div>
+              </div>
+              <br />
+              <ReactTooltip backgroundColor="white" textColor="black" className="tootip" />
+              <span className="driver_age">Driver's age: <span data-tip="Young or Senior drivers may have to pay an additional fee depending on the supplier selected." ><HiInformationCircle /></span></span>
+              
+              <br />
+              <div className="select_age">
+                <button onClick={() => {
+                  changeDriverAge({min : 18 , max : 29});
+                }} 
+                type="button"
+                className={`age_buttons ${searchValues.driver_age.min == 18 && searchValues.driver_age.max == 29 ? "active_age_btn" : ""}`}  
+                value="18-29">
+                18-29
+                </button>
+                <button onClick={() => {
+                  changeDriverAge({min : 30 , max : 69});
+                }} 
+                type="button"
+                className={`age_buttons ${searchValues.driver_age.min == 30 && searchValues.driver_age.max == 69 ? "active_age_btn" : ""}`} 
+                value="30-69">
+                30-69
+                </button>
+                <button onClick={() => {
+                  changeDriverAge({min : 71});
+                }} 
+                type="button"
+                className={`age_buttons ${searchValues.driver_age.min == 71 && searchValues.driver_age.max == null ? "active_age_btn" : ""}`}  
+                value="71">
+                70+
+                </button>
               </div>
             </form>
           </div>

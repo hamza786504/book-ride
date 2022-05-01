@@ -17,7 +17,7 @@
 }
 .background_image .search_form{
     background-color: rgba(0, 0, 0, 0.466);
-    height: 280px;
+    /* height: 280px; */
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -245,4 +245,40 @@
 }
 .css-b62m3t-container{
     height: 100%;
+}
+.driver_age{
+    color: white;
+    font-size: 14px;
+}
+.age_buttons:first-child{
+    margin-left: 0;
+}
+.age_buttons{
+    background-color: white;
+    padding: 7px 10px;
+    border-radius: 50px;
+    border: none;
+    margin-left: 20px;
+    min-width: 70px;
+    letter-spacing: 0.7px;
+    cursor: pointer;
+}
+.select_age{
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.age_buttons.active_age_btn{
+    background-color: var(--light-blue);
+    color: white;
+}
+.driver_age span{
+    cursor: help;
+}
+
+
+.tootip{
+    max-width: 370px;
+    text-align: start;
+    line-height: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.466);
 }
